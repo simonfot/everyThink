@@ -1,0 +1,183 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #111;
+    color: #fff;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Solar System Layout */
+#solar-system {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: #111;
+}
+
+/* Avatar Center */
+#avatar-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: #333;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+
+#avatar-center:hover {
+    background: #444;
+}
+
+#avatar-initials {
+    font-size: 2em;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Orbs */
+.orb {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 10px;
+}
+
+.orb span {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.orb:hover {
+    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.orb:hover span {
+    opacity: 1;
+}
+
+/* Project-specific orbs */
+#cueup-orb {
+    top: 30%;
+    left: 70%;
+    background: linear-gradient(135deg, #ff6b6b30, #55627030);
+}
+
+#unit3-orb {
+    top: 70%;
+    left: 25%;
+    background: linear-gradient(135deg, #43c6ac30, #19165430);
+}
+
+#fot-orb {
+    top: 20%;
+    left: 25%;
+    background: linear-gradient(135deg, #f7971e30, #ffd20030);
+}
+
+/* Game orbs */
+.game-orb {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+#rhythm-racer-orb {
+    top: 80%;
+    left: 70%;
+    background: linear-gradient(135deg, #8E2DE230, #4A00E030);
+}
+
+/* Coin Counter */
+#coin-counter {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+/* Avatar Popup */
+#avatar-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.95);
+    padding: 30px;
+    border-radius: 15px;
+    z-index: 1000;
+    width: 300px;
+    box-shadow: 0 0 30px rgba(255,255,255,0.1);
+    display: none;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#avatar-popup.show {
+    display: block;
+}
+
+#avatar-popup h2 {
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+}
+
+#avatar-customization input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 8px;
+}
+
+#avatar-customization input:focus {
+    outline: none;
+    border-color: rgba(255,255,255,0.4);
+}
+
+#avatar-customization button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background: #4A00E0;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#avatar-customization button:hover {
+    background: #5c16e6;
+}
