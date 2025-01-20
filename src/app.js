@@ -1,5 +1,5 @@
-// Import Three.js for 3D solar system visualization
 import * as THREE from 'three';
+import { testFrontend } from './test.js';
 
 // State management
 const state = {
@@ -19,13 +19,16 @@ const avatarImageInput = document.getElementById('avatarImage');
 const saveAvatarBtn = document.getElementById('saveAvatar');
 
 // Three.js Setup
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+let scene, camera, renderer;
 
 function initThreeJS() {
+    scene = new THREE.Scene();
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
+    
     camera.position.z = 5;
     
     // Add ambient light
@@ -113,12 +116,13 @@ saveAvatarBtn.addEventListener('click', () => {
 // Backend Integration
 async function saveUserData() {
     try {
-        const response = await fetch('/api/user', {
+        const response = await fetch('http://localhost:3000/api/user', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
+                did: 'test-user', // Placeholder DID
                 displayName: state.displayName,
                 avatarURL: state.avatarURL
             })
@@ -137,11 +141,19 @@ async function saveUserData() {
 window.addEventListener('load', () => {
     initThreeJS();
     updateAvatar();
+    
+    // Run tests in development
+    if (process.env.NODE_ENV !== 'production') {
+        console.log('Running frontend tests...');
+        testFrontend();
+    }
 });
 
 // Handle window resize
 window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    if (camera && renderer) {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    }
 });
