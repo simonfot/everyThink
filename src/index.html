@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>everyThink - Creative Ecosystem</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="coin-counter">Coins: <span id="coinValue">0</span></div>
+    
+    <div id="solar-system">
+        <!-- Avatar at the center -->
+        <div id="avatar-center">
+            <span id="avatar-initials">AV</span>
+        </div>
+
+        <!-- Project Orbs -->
+        <div class="orb" id="cueup-orb">
+            <span>CueUp</span>
+        </div>
+        <div class="orb" id="unit3-orb">
+            <span>UNIT3</span>
+        </div>
+        <div class="orb" id="fot-orb">
+            <span>FoT</span>
+        </div>
+
+        <!-- Game Orbs -->
+        <div class="orb game-orb" id="rhythm-racer-orb">
+            <span>Rhythm<br>Racer</span>
+        </div>
+    </div>
+
+    <!-- Avatar/Account Popup -->
+    <div id="avatar-popup" class="hidden">
+        <h2>My Account</h2>
+        <div id="avatar-customization">
+            <label for="displayName">Display Name:</label>
+            <input type="text" id="displayName" placeholder="Enter your name">
+            
+            <label for="avatarImage">Avatar Image URL:</label>
+            <input type="text" id="avatarImage" placeholder="https://...">
+            
+            <button id="saveAvatar">Save Avatar</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
